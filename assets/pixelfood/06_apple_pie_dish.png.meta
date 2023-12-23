@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "c356c3f0-ea35-43cb-b328-ffa2f7f8174f",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "point",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 32,
+  "height": 32,
+  "platformSettings": {},
+  "subMetas": {
+    "06_apple_pie_dish": {
+      "ver": "1.0.6",
+      "uuid": "adee67f3-d530-4123-b8c2-9d13c2b6e39d",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "c356c3f0-ea35-43cb-b328-ffa2f7f8174f",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0.5,
+      "offsetY": -1,
+      "trimX": 1,
+      "trimY": 2,
+      "width": 31,
+      "height": 30,
+      "rawWidth": 32,
+      "rawHeight": 32,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

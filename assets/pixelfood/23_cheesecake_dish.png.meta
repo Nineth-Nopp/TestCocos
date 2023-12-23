@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "a58a7096-c9f0-4b6f-9b46-a2e25df9eda0",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "point",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 32,
+  "height": 32,
+  "platformSettings": {},
+  "subMetas": {
+    "23_cheesecake_dish": {
+      "ver": "1.0.6",
+      "uuid": "b1f2f34a-c772-4ea2-957f-f07adcf2ee90",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "a58a7096-c9f0-4b6f-9b46-a2e25df9eda0",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0.5,
+      "offsetY": -1,
+      "trimX": 1,
+      "trimY": 2,
+      "width": 31,
+      "height": 30,
+      "rawWidth": 32,
+      "rawHeight": 32,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "953c5544-5b7c-4d82-8731-68a7842047fc",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "point",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 32,
+  "height": 32,
+  "platformSettings": {},
+  "subMetas": {
+    "17_burger_napkin": {
+      "ver": "1.0.6",
+      "uuid": "1fea7dc5-f017-470b-8ba7-e3bc1287d2ec",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "953c5544-5b7c-4d82-8731-68a7842047fc",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": -1,
+      "trimX": 0,
+      "trimY": 2,
+      "width": 32,
+      "height": 30,
+      "rawWidth": 32,
+      "rawHeight": 32,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
