@@ -16,13 +16,13 @@ cc.Class({
         },
         winprefabs: cc.Prefab,
         winrowprefabs: cc.Prefab,
-        
+
 
     },
 
     onLoad: function () {
         // Add a click event handler to the button
-        this.myButton.node.on('click', this.spawnAndDrop, this);
+        this.myButton.node.on('click', this.rolling, this);
     },
 
     spawn: function (prefab, position) {
@@ -39,9 +39,9 @@ cc.Class({
         // Calculate a position at the top of the screen
         let spawnPosition = new cc.Vec2(targetPosition.x, cc.winSize.height);
 
-        // Spawn the prefab at the spawn position
-        let instance = this.spawn(prefab, spawnPosition);
-
+        let instance = cc.instantiate(prefab);
+        instance.setPosition(spawnPosition);
+        cc.director.getScene().getChildByName("box").addChild(instance);
         // Make the prefab drop to the target position
 
         cc.tween(instance)
@@ -52,29 +52,6 @@ cc.Class({
     spawnAndDrop: function () {
         spin++;
 
-        const popup = cc.director.getScene().getChildByName('bigPrize');
-        if (popup) {
-            popup.destroy();
-        }
-
-        // Loop through all prefabs and layouts
-        if (clicked == true) {
-            let scene = cc.director.getScene(); // get the scene
-            let children = scene.children; // get all children of the scene
-
-            for (let i = children.length - 1; i >= 0; i--) {
-                let child = children[i];
-                if (child.group === 'food') { // check if the child's group is the one you want to delete
-                    child.destroy(); // destroy the child
-                }
-            }
-
-            const Winrow = cc.director.getScene();
-            const winsign = Winrow.getChildByName('rowWin')
-            if (winsign) {
-                winsign.destroy();
-            }
-        }
         let numSet = [];
         for (let i = 0; i < this.target.length; i++) {
             let number = i;
@@ -128,6 +105,64 @@ cc.Class({
         let randomNumber = min + Math.random() * (max - min);
         let floor = Math.floor(randomNumber);
         return floor;
-    }
+    },
+    rolling: function () {
+
+        const popup = cc.director.getScene().getChildByName('bigPrize');
+        if (popup) {
+            popup.destroy();
+        }
+
+        // Loop through all prefabs and layouts
+        if (clicked == true) {
+            let scene = cc.director.getScene().getChildByName("box"); // get the scene
+            let children = scene.children; // get all children of the scene
+
+            for (let i = children.length - 1; i >= 0; i--) {
+                let child = children[i];
+                if (child.group === 'food') { // check if the child's group is the one you want to delete
+                    child.destroy(); // destroy the child
+                }
+            }
+
+            const Winrow = cc.director.getScene();
+            const winsign = Winrow.getChildByName('rowWin')
+            if (winsign) {
+                winsign.destroy();
+            }
+        }
+
+
+        let interval = .05;
+        let repeat = 20;
+        let delay = 0;
+        let count = 0
+
+        this.schedule(function () {
+            // Here 'this' refers to the component
+
+            for (let i = 0; i < 5; i++) {
+                let prefabrand = this.rand();
+                let aposition = this.target[i]
+                let instance = cc.instantiate(this.myPrefabs[prefabrand]); // create prefab instance
+                instance.parent = cc.director.getScene().getChildByName("box"); // add instance to scene
+
+                instance.position = cc.v2(aposition.x, cc.winSize.height); // set random x and top y position
+
+                // move action
+                let moveAction = cc.moveTo(0.5, cc.v2(instance.x, -instance.height));
+                instance.runAction(moveAction);
+
+            }
+            count++;
+            if (count > repeat) {
+
+                this.spawnAndDrop()
+            }
+
+        }, interval, repeat, delay);
+
+    },
+
 
 });
