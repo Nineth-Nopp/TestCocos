@@ -7,15 +7,16 @@ cc.Class({
     properties: {
         myPrefabs: {
             default: [],
-            type: cc.Prefab  // Drag and drop your prefabs here
+            type: cc.Prefab
         },
-        myButton: cc.Button,  // Drag and drop your button here
+        myButton: cc.Button,
         target: {
             default: [],
-            type: cc.Node  // Drag and drop your target layouts here
+            type: cc.Node
         },
         winprefabs: cc.Prefab,
         winrowprefabs: cc.Prefab,
+        
 
     },
 
@@ -25,13 +26,10 @@ cc.Class({
     },
 
     spawn: function (prefab, position) {
-        // Instantiate the prefab
         let instance = cc.instantiate(prefab);
 
-        // Set the position of the instance
         instance.setPosition(position);
 
-        // Add the instance to the current scene
         cc.director.getScene().addChild(instance);
 
         return instance;
@@ -45,10 +43,9 @@ cc.Class({
         let instance = this.spawn(prefab, spawnPosition);
 
         // Make the prefab drop to the target position
-        // You can use an action, a tween, or a physics engine to do this
-        // Here's an example using cc.Tween
+
         cc.tween(instance)
-            .to(.1, { position: targetPosition })  // 2 seconds
+            .to(.1, { position: targetPosition })
             .start();
     },
 
@@ -59,8 +56,6 @@ cc.Class({
         if (popup) {
             popup.destroy();
         }
-
-
 
         // Loop through all prefabs and layouts
         if (clicked == true) {
@@ -106,16 +101,20 @@ cc.Class({
             let position = new cc.Vec2(15, -1024);
             this.spawn(this.winprefabs, position);
             console.log("WIN BIG PRIZE")
-            
-        }else{
+
+        } else {
             for (let i = 0; i < 3; i++) {
                 let j = i * 5
                 if (numSet[j] == numSet[j + 1] && numSet[j] == numSet[j + 2] && numSet[j] == numSet[j + 3] && numSet[j] == numSet[j + 4]) {
-                    let position = new cc.Vec2(122, 23.7);
-                    this.spawn(this.winrowprefabs, position);
+                    let spawnPosition = new cc.Vec2(476, -190);
+                    let targetPosition = new cc.Vec2(476, 71)
+                    let instance = this.spawn(this.winrowprefabs, spawnPosition);
+                    cc.tween(instance)
+                        .to(.1, { position: targetPosition })
+                        .start();
                     console.log("WIN")
                 }
-    
+
             }
         }
 
